@@ -3,7 +3,10 @@ package android.cocoweather.com.cocoweather.util;
 import android.cocoweather.com.cocoweather.db.City;
 import android.cocoweather.com.cocoweather.db.County;
 import android.cocoweather.com.cocoweather.db.Province;
+import android.cocoweather.com.cocoweather.gson.Weather;
 import android.text.TextUtils;
+
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -72,5 +75,17 @@ public class Utility {
             }
         }
         return false;
+    }
+    /*解析JSON到Weather实体类*/
+    public static Weather handleWeatherResponse(String response){
+        try{
+            JSONObject jsonObject=new JSONObject(response);
+            JSONArray jsonArray=jsonObject.getJSONArray("HeWeather");
+            String weatherContent=jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent,Weather.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
