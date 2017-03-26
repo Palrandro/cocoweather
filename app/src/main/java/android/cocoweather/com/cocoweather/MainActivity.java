@@ -1,5 +1,6 @@
 package android.cocoweather.com.cocoweather;
 
+import android.cocoweather.com.cocoweather.service.AutoUpdateService;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

@@ -2,8 +2,10 @@ package android.cocoweather.com.cocoweather;
 
 import android.cocoweather.com.cocoweather.gson.Forecast;
 import android.cocoweather.com.cocoweather.gson.Weather;
+import android.cocoweather.com.cocoweather.service.AutoUpdateService;
 import android.cocoweather.com.cocoweather.util.HttpUtil;
 import android.cocoweather.com.cocoweather.util.Utility;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -205,5 +207,6 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+
     }
 }
